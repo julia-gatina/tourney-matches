@@ -4,12 +4,12 @@ import Player from "./Player";
 
 function PlayerList(props) {
   const parsedPlayerData = props.parsedPlayerData;
-  const onePlayer = parsedPlayerData[0];
+  const parsedPlayers = parsedPlayerData.map(player => <Player key={player.gamerTag} {...player} />);
 
   return (
     <section className="PlayerList">
       <h1>Current participating players</h1>
-      <Player {...onePlayer} />
+      {parsedPlayers}
     </section>
   );
 }

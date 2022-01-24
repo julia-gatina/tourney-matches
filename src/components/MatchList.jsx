@@ -3,11 +3,12 @@ import Match from "./Match";
 
 function MatchList(props) {
   const matchData = props.matchData;
-  const oneMatch = matchData[1];
+  const parsedMatches = matchData.map(match => <Match key={match.matchNumber} {...match} />);
+
   return (
     <section className="PlayerList MatchList">
       <h1>Match list</h1>
-      <Match {...oneMatch} />
+      {parsedMatches}
     </section>
   );
 }
